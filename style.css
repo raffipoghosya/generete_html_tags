@@ -22,6 +22,7 @@ body {
 /* Header Section */
 .site-header {
     background: url('img/fingers.png') no-repeat center center/cover;
+    filter: brightness(50%);
     height: 100vh;
     position: relative;
     color: #fff;
@@ -64,6 +65,19 @@ body {
     color: #ff5733;
 }
 
+.main-navigation .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.main-navigation .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
 /* Welcome Section */
 .welcome {
     position: absolute;
@@ -107,12 +121,6 @@ body {
         flex-direction: column;
         gap: 15px;
     }
-
-    .main-navigation .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     .welcome h1 {
         font-size: 2rem;
     }
@@ -121,6 +129,24 @@ body {
         font-size: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .main-navigation .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .main-navigation .nav-menu.show {
+        display: flex;
+    }
+}
+
 
 /* Service Section */
 .services {
@@ -287,74 +313,60 @@ body {
 
 
 
-
-/* Our Work Section */
-.our-work {
-    padding: 50px 20px;
-    background-color: #070e35;
-    text-align: center;
-}
-
-.our-work h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.table {
+/* Section Background */
+.stats-section {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.table div {
-    display: flex;
+    justify-content: space-around;
     align-items: center;
-    gap: 15px;
+    background-color: #1e2c3c; 
+    padding: 60px 50px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    color: #ffffff;
     flex: 1 1 calc(25% - 20px);
-    /* 4 item */
-    background: #0c1446;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
 }
 
-.table div:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+.stat img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(78%) saturate(2915%) 
+            hue-rotate(341deg) brightness(92%) contrast(93%);
 }
 
-.table div img {
-    max-width: 50px;
-    height: auto;
-    filter: brightness(1) invert(0.2);
-}
-
-.text-content h1 {
-    color: #ffcc00;
+.stat-content h1 {
     font-size: 2.5rem;
+    font-weight: bold;
     margin: 0;
+    color: #ffffff;
 }
 
-.text-content p {
+.stat-content p {
     font-size: 0.9rem;
-    color: #ddd;
+    text-transform: uppercase;
+    margin: 0;
+    color: #dddddd;
 }
 
 @media (max-width: 768px) {
-    .table div {
-        flex: 1 1 calc(50% - 20px);
-        /* 2 item */
+    .stats-section {
+        gap: 20px;
+    }
+
+    .stat {
+        flex: 1 1 calc(50% - 20px); 
     }
 }
 
 @media (max-width: 480px) {
-    .table div {
-        flex: 1 1 100%;
-        /* 1 item */
+    .stat {
+        flex: 1 1 100%; 
     }
 }
 
@@ -374,79 +386,101 @@ p {
 
 
 
+
 /* Center Align Filter Buttons */
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.filter-btn {
-    background: #070e35;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background: #ff5733;
-}
-
-.portfolio-section {
+/* General Team Section Styles */
+.team {
     padding: 60px 20px;
-    background: #ffffff;
     text-align: center;
+    background-color: #f9f9f9;
 }
 
+.team h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.team p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* Filter Buttons */
 .filter-buttons {
     margin-bottom: 30px;
 }
 
 .filter-btn {
-    background: #070e35;
-    color: #fff;
-    border: none;
     padding: 10px 20px;
     margin: 5px;
-    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    color: #333;
     border-radius: 5px;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
-    background: #ff5733;
+.filter-btn.active, .filter-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Portfolio Grid Layout */
+.portfolio-section {
+    padding: 20px;
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-gap: 20px; /* Space between items */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-item img {
-    width: 100%;
-    display: block;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
+
+
+
+
+
+
+
 
 /* Testimonial Slider Section */
 .testimonial-slider {
@@ -530,8 +564,8 @@ p {
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
+    padding: 15px;
+    border-radius: 45%;
     transition: background 0.3s;
 }
 
@@ -547,7 +581,13 @@ p {
     right: 10px;
 }
 
+
+
+
+
 /* Team Section Styles */
+
+
 .team-section {
     padding: 60px 20px;
     text-align: center;
@@ -680,7 +720,7 @@ p {
 
 .news-card img {
     width: 100%;
-    height: auto;
+    height: 70%;
 }
 
 .news-card h3 {
