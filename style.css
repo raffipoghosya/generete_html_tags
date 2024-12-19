@@ -10,11 +10,16 @@ body {
     color: #333;
    
 }
+#blc span { 
+    border-left: 200px solid red; 
+    display: inline-block; 
+    height: 1.9px; 
+         }
 
 @media (max-width: 792px) {
   body{
          height: 100%;
-         width: 1000px;
+         width: 100%;
     }
 
     
@@ -192,8 +197,8 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: left;
+    text-align: left;
 }
 
 .service-item img {
@@ -424,7 +429,7 @@ p {
     padding: 10px 20px;
     margin: 5px;
     border: none;
-    background-color: #ddd;
+    /* background-color: #ddd; */
     color: #333;
     border-radius: 5px;
     cursor: pointer;
@@ -663,7 +668,7 @@ p {
 /* Call to Action Section */
 .cta-section {
     background: url('img/bcpensle.jpg') no-repeat center center/cover;
-    padding: 60px 20px;
+    padding: 120px 20px;
     text-align: center;
     color: white;
     position: relative;
