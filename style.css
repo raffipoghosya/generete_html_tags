@@ -8,9 +8,17 @@
 body {
     line-height: 1.6;
     color: #333;
+   
 }
 
+@media (max-width: 792px) {
+  body{
+         height: 100%;
+         width: 1000px;
+    }
 
+    
+}
 
 /* General Reset */
 * {
@@ -22,7 +30,6 @@ body {
 /* Header Section */
 .site-header {
     background: url('img/fingers.png') no-repeat center center/cover;
-    filter: brightness(50%);
     height: 100vh;
     position: relative;
     color: #fff;
@@ -38,7 +45,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 99%;
     margin: 2 auto;
 }
 
@@ -562,10 +569,10 @@ p {
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border: none;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
-    padding: 15px;
-    border-radius: 45%;
+    padding: 23px;
+    border-radius: 74%;
     transition: background 0.3s;
 }
 
@@ -751,6 +758,54 @@ p {
 }
 
 
+
+
+/* section for logos */
+
+
+.logo-section {
+    background-color: #eceff1; /* Light background for the logo section */
+    padding: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    gap: 7%; 
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container img {
+    max-width: 250px; 
+    max-height: 100px;
+    object-fit: contain;
+    filter: grayscale(100%); 
+    transition: filter 0.3s ease, transform 0.3s ease; 
+}
+
+.logo-container img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1); 
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        gap: 11%; 
+    }
+
+    .logo-container img {
+        max-width: 150px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container img {
+        max-width: 100px;
+    }
+}
 
 /* Footer Section */
 .site-footer {
